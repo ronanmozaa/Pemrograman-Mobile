@@ -5,6 +5,8 @@ import 'WelcomePage.dart';
 class Body extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    final double screenHeight=MediaQuery.of(context).size.height;
+    final double screenWidth=MediaQuery.of(context).size.width;
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height,
@@ -22,24 +24,24 @@ class Body extends StatelessWidget{
             child: Image.asset("assets/Ellipse 1.png"),
           ),
           Container(
-            margin: EdgeInsets.only(top: 90),
+            margin: EdgeInsets.only(top: screenHeight/10),
             // color: Colors.green,
             alignment: Alignment.topCenter,
-            child: Image.asset("assets/Group 33332.png", width: 300,),
+            child: Image.asset("assets/Group 33332.png", width: screenWidth*0.8,),
           ),
           Column(
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: screenHeight/20),
                 // color: Colors.blue,
                 alignment: Alignment.topCenter,
-                child: Image.asset("assets/Group 1.png", width: 100,),
+                child: Image.asset("assets/Group 1.png", width: screenWidth*0.3,),
               ),
               Container(
                 // color: Colors.lightBlue,
-                margin: EdgeInsets.only(top: 90),
+                margin: EdgeInsets.only(top: screenHeight*0.1, bottom: screenHeight*0.05),
                 alignment: Alignment.center,
-                child: Image.asset("assets/6.png", width: 250, height: 250),
+                child: Image.asset("assets/6.png", width: screenWidth*0.7),
               ),
               Text("Antar Paket ?", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
 
@@ -65,7 +67,7 @@ class Body extends StatelessWidget{
                   color: Color.fromARGB(255, 136, 204, 241),
                 )),
                 alignment: Alignment.bottomCenter,
-                padding: EdgeInsets.only(top: 50, bottom: 52),
+                padding: EdgeInsets.only(top: screenHeight*0.093, bottom: screenHeight*0.08),
                 child: 
                 ElevatedButton(
                   onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context){return WelcomePage();},),);},
@@ -75,6 +77,7 @@ class Body extends StatelessWidget{
                     primary: Color.fromARGB(255, 193, 223, 240),
                     onPrimary: Color.fromARGB(255, 255, 151, 1),
                     minimumSize: Size(370, 60),
+                    // maximumSize: Size(screenWidth/2, screenHeight*0.5),
                     shape: StadiumBorder()
                   ),
                   ),

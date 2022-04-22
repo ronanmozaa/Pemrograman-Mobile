@@ -1,11 +1,9 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:first_project/Homepage.dart';
-
-import 'SignUp.dart';
+import 'package:first_project/SignIn.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({ Key? key }) : super(key: key);
+class SignUp extends StatelessWidget {
+  const SignUp({ Key? key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +43,7 @@ class SignIn extends StatelessWidget {
                   margin: EdgeInsets.only(top: 40),
                   child: Image.asset("assets/4.png"),
                 ),
-                Text("Sign In",
+                Text("Sign Up",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 50,
@@ -56,6 +54,17 @@ class SignIn extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold, 
                     fontSize: 15))),
+                    TextFieldContainer(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        Icons.person, color: Colors.black,),
+                        hintText: "Fullname",
+                        border: InputBorder.none,
+                      
+                    ),
+                  ),
+                  ),
                 TextFieldContainer(
                   child: TextField(
                     decoration: InputDecoration(
@@ -65,7 +74,8 @@ class SignIn extends StatelessWidget {
                         border: InputBorder.none,
                       
                     ),
-                  ),),
+                  ),
+                  ),
                 TextFieldContainer(child: TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -76,12 +86,22 @@ class SignIn extends StatelessWidget {
                     suffixIcon: Icon(Icons.visibility, color: Colors.black)
                   ),
                 )),
+                TextFieldContainer(child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    
+                    hintText: "Confirm Password",
+                    border: InputBorder.none,
+                    icon: Icon(Icons.lock, color: Colors.black,),
+                    suffixIcon: Icon(Icons.visibility, color: Colors.black)
+                  ),
+                )),
                 Container(
                   padding: EdgeInsets.only(top: 20, bottom: 20),
                   child: ElevatedButton(
                     onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context){return HomePage();},),);},
                     // {Navigator.push(context, MaterialPageRoute(builder: (context){return WelcomePage();},),);},
-                    child: Text("Login", style: TextStyle(fontSize: 25),),
+                    child: Text("Sign Up", style: TextStyle(fontSize: 25),),
                     style:
                     ElevatedButton.styleFrom(
                       primary: Colors.black,
@@ -91,7 +111,17 @@ class SignIn extends StatelessWidget {
                     ),
                     ),
                 ),
-                HaveAccount(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text("Already Have an Account ?", style: TextStyle(fontSize: 13),),
+                    GestureDetector(
+                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignIn();},),);},
+                      child: Text("Login", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
+                    )
+        
+                  ],
+                ),
                 Container(
                   margin: EdgeInsets.only(bottom: 51),
                     decoration: BoxDecoration(
@@ -107,27 +137,6 @@ class SignIn extends StatelessWidget {
 
       ),
       
-    );
-  }
-}
-
-class HaveAccount extends StatelessWidget {
-  const HaveAccount({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text("Don't Have an Account ?", style: TextStyle(fontSize: 13),),
-        GestureDetector(
-          onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context){return SignUp();},),);},
-          child: Text(" Sign Up", style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-        )
-        
-      ],
     );
   }
 }
