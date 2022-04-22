@@ -57,7 +57,10 @@ class WelcomePage extends StatelessWidget {
                 ),
             
               ),
-              const Text("dalam Satu Aplikasi", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              const Text("dalam Satu Aplikasi",
+               style: TextStyle(
+                 fontSize: 20,
+                  fontWeight: FontWeight.bold),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 20),
@@ -74,7 +77,8 @@ class WelcomePage extends StatelessWidget {
                         onPressed: (){Navigator.push
                         (context, MaterialPageRoute(builder: 
                         (context) {return WelcomePage2();},),);}, 
-                        label: Text("Tekan Tombol untuk pindah slide"),icon: Icon(Icons.keyboard_arrow_right),),
+                        label: Text("Tekan Tombol untuk pindah slide"),
+                        icon: Icon(Icons.keyboard_arrow_right),),
                     ),
                   ],
                 ),
